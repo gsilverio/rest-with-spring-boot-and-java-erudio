@@ -1,0 +1,16 @@
+/node_modules
+
+# SSH Keys
+
+*.pem
+*.ppk
+
+# Package Files #
+
+*.jar
+*.war
+*.ear
+
+#IntelliJ Files
+**/*.iml
+**/.idea
