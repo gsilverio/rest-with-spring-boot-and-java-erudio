@@ -1,1 +1,13 @@
-
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rest-with-spring-boot?useTimezone=true&serverTimezone=UTC
+    username: postgres
+    password: 12345
+  jpa:
+    hibernate:
+      ddl-auto: update
+    #properties:
+      #hibernate:
+       # dialect: org.hibernate.dialect.PostgreSQLDialect
+      show_sql: false
+    open-in-view: false
