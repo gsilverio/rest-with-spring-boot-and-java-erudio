@@ -1,6 +1,7 @@
 package com.restjava.RestJava.controllers;
 
 import com.restjava.RestJava.dto.v1.PersonDTO;
+import com.restjava.RestJava.dto.v2.PersonDTOV2;
 import com.restjava.RestJava.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -32,6 +33,15 @@ public class PersonController {
     public PersonDTO create(@RequestBody PersonDTO dto){
         return service.create(dto);
     }
+
+    @PostMapping(value = "/v2",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    public PersonDTOV2 createV2(@RequestBody PersonDTOV2 dto){
+        return service.createV2(dto);
+    }
+
+
+
+
     //@RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     public PersonDTO update(@RequestBody PersonDTO dto){
