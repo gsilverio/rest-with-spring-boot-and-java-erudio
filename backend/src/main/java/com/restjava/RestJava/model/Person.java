@@ -4,8 +4,9 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 @Entity
-@Table(name="person")
+@Table(name = "person")
 public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -19,7 +20,9 @@ public class Person implements Serializable {
     private String address;
     @Column(nullable = false, length = 10)
     private String gender;
-    public Person(){}
+
+    public Person() {
+    }
 
     public Long getId() {
         return id;

@@ -17,7 +17,6 @@ public class PersonDTO implements Serializable {
     @JsonProperty("last_name")
     private String lastName;
     private String address;
-    @JsonIgnore
     private String gender;
     public PersonDTO(){}
 
