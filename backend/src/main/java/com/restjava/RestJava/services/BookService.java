@@ -53,7 +53,7 @@ public class BookService {
         logger.info("Att book");
         Book entity = repository.findById(book.getKey()).orElseThrow(()->new ResourceNotFoundException("No records founds for this id"));
         entity.setAuthor(book.getAuthor());
-        entity.setLauchDate(book.getLaunchDate());
+        entity.setLaunchDate(book.getLaunchDate());
         entity.setPrice(book.getPrice());
         entity.setTitle(book.getTitle());
         var dto = DozerMapper.parseObject(repository.save(entity), BookDTO.class);
