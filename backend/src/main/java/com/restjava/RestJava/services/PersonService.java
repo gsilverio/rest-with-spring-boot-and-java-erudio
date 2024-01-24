@@ -3,6 +3,7 @@ package com.restjava.RestJava.services;
 import com.restjava.RestJava.controllers.PersonController;
 import com.restjava.RestJava.dto.v1.PersonDTO;
 import com.restjava.RestJava.dto.v2.PersonDTOV2;
+import com.restjava.RestJava.exceptions.RequiredObjectIsNullException;
 import com.restjava.RestJava.exceptions.ResourceNotFoundException;
 import com.restjava.RestJava.mapper.DozerMapper;
 import com.restjava.RestJava.mapper.custom.PersonMapper;
@@ -40,6 +41,10 @@ public class PersonService {
     }
 
     public PersonDTO create(PersonDTO person){
+
+        if(person == null) throw new RequiredObjectIsNullException();
+
+
         logger.info("Creating one person");
         var entity = DozerMapper.parseObject(person, Person.class);
         var dto = DozerMapper.parseObject(repository.save(entity), PersonDTO.class);
@@ -47,6 +52,7 @@ public class PersonService {
         return dto;
     }
     public PersonDTO update(PersonDTO person){
+        if(person == null) throw new RequiredObjectIsNullException();
         logger.info("Att person");
         Person entity = repository.findById(person.getKey()).orElseThrow(()->new ResourceNotFoundException("No records founds for this id"));
         entity.setFirstName(person.getFirstName());
