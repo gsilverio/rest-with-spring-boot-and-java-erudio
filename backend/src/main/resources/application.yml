@@ -1,3 +1,6 @@
+cors:
+  originPatterns: http://localhost:3000,http://localhost:8080,https://erudio.com.br
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/rest-with-spring-boot?useTimezone=true&serverTimezone=UTC
